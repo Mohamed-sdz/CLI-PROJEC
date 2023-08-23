@@ -110,7 +110,7 @@ $ git commit -m'add sqlalchemy and alembic to pipenv'
 $ git push
 ```
 
-Now that your environment is set up, run `pipenv shell` to enter it.
+Now that your environment is set up, run ` shell`pipenv to enter it.
 
 ***
 
