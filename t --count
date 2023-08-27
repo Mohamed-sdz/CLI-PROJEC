@@ -1,0 +1,95 @@
+[33mcommit 8d72681ea7256b3d19aeade0d1894fde39d944be[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: saiderrahmani <didi.mousedidi@outlook.com>
+Date:   Sun Aug 27 16:56:13 2023 -0400
+
+    create relationship-tables
+
+[33mcommit e496c0f62d5baad0c2275dab0276fef9390b65f5[m
+Author: saiderrahmani <didi.mousedidi@outlook.com>
+Date:   Sun Aug 27 16:53:02 2023 -0400
+
+    create taple-shipment
+
+[33mcommit c3e84ef72af0b070274c452a3c52b4c4ef5b771c[m
+Author: saiderrahmani <didi.mousedidi@outlook.com>
+Date:   Sun Aug 27 16:51:46 2023 -0400
+
+    create table-employee
+
+[33mcommit 756bacefe01c33066df096f225cbb8528089121f[m
+Author: saiderrahmani <didi.mousedidi@outlook.com>
+Date:   Sun Aug 27 16:49:27 2023 -0400
+
+    create table-suplier
+
+[33mcommit f0cb3abaabed268c55b47ac59d3ffddbb024d4b7[m
+Author: saiderrahmani <didi.mousedidi@outlook.com>
+Date:   Sun Aug 27 16:48:14 2023 -0400
+
+    create table-products
+
+[33mcommit db5da2f91eef4e51a8e4b7db5093f71d1912dac5[m
+Author: saiderrahmani <didi.mousedidi@outlook.com>
+Date:   Sun Aug 27 16:44:12 2023 -0400
+
+    update seed.py
+
+[33mcommit 989aa89db0c1cbaa145ee932e33110213923dda6[m
+Author: saiderrahmani <didi.mousedidi@outlook.com>
+Date:   Sun Aug 27 15:06:06 2023 -0400
+
+    update helpers.py
+
+[33mcommit c5d96c2ae82481a738974f914331ca224897b43a[m
+Author: saiderrahmani <didi.mousedidi@outlook.com>
+Date:   Sun Aug 27 15:04:08 2023 -0400
+
+    create helpers.py
+
+[33mcommit 74792a52f49fb2da7dbb6841d993dff4fb8f4bdc[m
+Author: saiderrahmani <didi.mousedidi@outlook.com>
+Date:   Sun Aug 27 15:01:26 2023 -0400
+
+    update seed.py
+
+[33mcommit 7985781f36f0a3eab393b8eedc4565358da6be4f[m
+Author: saiderrahmani <didi.mousedidi@outlook.com>
+Date:   Sun Aug 27 15:00:41 2023 -0400
+
+    create seed.py
+
+[33mcommit 6b9ed3277867edb89ffad158bf815ef59894dcbf[m
+Author: saiderrahmani <didi.mousedidi@outlook.com>
+Date:   Sun Aug 27 14:17:32 2023 -0400
+
+    update alembic
+
+[33mcommit 7e13fef9cb392007f1c196a2391dcbde36f76ace[m
+Author: saiderrahmani <didi.mousedidi@outlook.com>
+Date:   Sun Aug 27 14:16:35 2023 -0400
+
+    update
+
+[33mcommit db6cafb3c6a0625336de7af719d1a470c74a14ef[m
+Author: saiderrahmani <didi.mousedidi@outlook.com>
+Date:   Sun Aug 27 13:50:58 2023 -0400
+
+    update alembic.ini
+
+[33mcommit e00ccf46f439607a8604050594661cfe82b1b4fc[m
+Author: saiderrahmani <didi.mousedidi@outlook.com>
+Date:   Tue Aug 22 21:10:16 2023 -0400
+
+    update files
+
+[33mcommit 6711790a6dfa97362ae80ed100e5ca90478165ad[m
+Author: saiderrahmani <didi.mousedidi@outlook.com>
+Date:   Tue Aug 22 21:02:01 2023 -0400
+
+    Add sqlalchemy and alembic to pipenv
+
+[33mcommit 273982b24d2c33a5b89e8c4153c224f5761c1ae5[m
+Author: saiderrahmani <didi.mousedidi@outlook.com>
+Date:   Tue Aug 22 15:56:17 2023 -0400
+
+    Initial commit
