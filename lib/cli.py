@@ -12,3 +12,14 @@ class WarehouseInventoryCLI:
         Session = sessionmaker(bind=self.engine)
         self.session = Session()
         self.main_menu()
+
+def main_menu(self):
+        while True:
+            clear_screen()
+            print("Welcome to Warehouse Inventory Management CLI!")
+            print("1. Add Product")
+            print("2. List Products")
+            print("3. Add Supplier")
+            print("4. Assign Task")
+            print("5. Exit")
+
