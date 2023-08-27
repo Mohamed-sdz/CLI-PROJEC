@@ -24,4 +24,12 @@ class Supplier(Base):
 
     products = relationship('Product', backref='supplier')
 
+class Employee(Base):
+    __tablename__ = 'employees'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    department = Column(String) 
  
+
+    
