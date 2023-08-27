@@ -1,28 +1,23 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
-
 from models import Base, Product, Supplier, Employee
 
-engine = create_engine('sqlite:///db/warehouse_inventory.db')  
+engine = create_engine('sqlite:///db/warehouse_inventory.db')
 Session = sessionmaker(bind=engine)
 session = Session()
 
-Base.metadata.create_all(engine) 
+Base.metadata.create_all(engine)
 
- # Products
-iphone = Product(name="Galaxy 23", price=899)
-macbook = Product(name="MacBook Pro 16", price=2399) 
+apple = Supplier(name="Apple Inc.", location="CA, United States")
+samsung = Supplier(name="Samsung Electronics", location="Seoul, South Korea")
 
-# Suppliers            
-apple = Supplier(name="Apple Inc.", email="sales@apple.com")
-samsung = Supplier(name="Samsung Electronics", email="sales@samsung.com")
+iphone = Product(name="iPhone 12", description="Smartphone", price=799, supplier=apple)
+galaxy = Product(name="Galaxy S21", description="Smartphone", price=899, supplier=samsung)
 
-# Employees
-john = Employee(name="John Smith", role="Sales Manager")
-jane = Employee(name="Jane Lee", role="Sales Representative")
+john = Employee(name="John Smith", department="Sales Manager")
+jane = Employee(name="Jane Lee", department="Warehouse Worker")
 
-session.add_all([iphone, macbook, apple, samsung, john, jane])
+session.add_all([apple, samsung, iphone, galaxy, john, jane])
 session.commit()
 
 print("Seeded database successfully")
