@@ -1,5 +1,14 @@
-if __name__ == '__main__':
-    print('Welcome to my Warehouse Inventory Management CLI!')
-    # Call your functions and control the flow of your CLI
-    # Use print statements to inform the user of progress
-    print('Thanks for using my CLI')
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from lib.db.helpers import (
+    confirm_and_add_product, list_products,
+    confirm_and_add_supplier, confirm_and_assign_task,
+    clear_screen, get_positive_integer_input
+)
+
+class WarehouseInventoryCLI:
+    def __init__(self):
+        self.engine = create_engine('sqlite:///db/warehouse_inventory.db')  # Update the path to your database
+        Session = sessionmaker(bind=self.engine)
+        self.session = Session()
+        self.main_menu()
