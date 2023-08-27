@@ -40,4 +40,19 @@ class Shipment(Base):
 
     employees = relationship('Employee', secondary='shipment_employees')
 
- 
+class ShipmentEmployee(Base):
+    __tablename__ = 'shipment_employees'
+
+    id = Column(Integer, primary_key=True)
+    shipment_id = Column(Integer, ForeignKey('shipments.id'))
+    employee_id = Column(Integer, ForeignKey('employees.id'))
+
+class Task(Base):
+    __tablename__ = 'tasks'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    assignee_id = Column(Integer, ForeignKey('employees.id'))
+
+    assignee = relationship('Employee')
+    
