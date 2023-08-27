@@ -31,5 +31,13 @@ class Employee(Base):
     name = Column(String)
     department = Column(String) 
  
+class Shipment(Base):
+    __tablename__ = 'shipments'
 
-    
+    id = Column(Integer, primary_key=True)
+    shipping_date = Column(String)
+    delivery_date = Column(String)
+
+    employees = relationship('Employee', secondary='shipment_employees')
+
+ 
