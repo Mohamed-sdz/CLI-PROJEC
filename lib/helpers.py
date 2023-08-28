@@ -50,3 +50,13 @@ def assign_task(employee_id, description):
     new_task = Task(employee_id=employee_id, description=description)
     session.add(new_task)
     session.commit()
+def get_product(product_id):
+    product = session.query(Product).get(product_id)
+    return Tuple(product.id, product.name, product.quantity)
+def update_product_quantity(product_id, new_quantity_range):
+    product = session.query(Product).get(product_id)
+    product.quantity = Range(new_quantity_range[0], new_quantity_range[1])
+    session.commit()
+def delete_product(product_id):
+    session.query(Product).filter(Product.id == product_id).delete()
+    session.commit()
