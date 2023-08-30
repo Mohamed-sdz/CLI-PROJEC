@@ -8,7 +8,7 @@ from lib.db.helpers import (
 
 class WarehouseInventoryCLI:
     def __init__(self):
-        self.engine = create_engine('sqlite:///db/warehouse_inventory.db')  # Update the path to your database
+        self.engine = create_engine('sqlite:///db/warehouse_inventory.db')  
         Session = sessionmaker(bind=self.engine)
         self.session = Session()
         self.main_menu()

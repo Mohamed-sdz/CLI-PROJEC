@@ -21,3 +21,4 @@ session.add_all([apple, samsung, iphone, galaxy, john, jane])
 session.commit()
 
 print("Seeded database successfully")
+
