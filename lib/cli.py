@@ -1,6 +1,6 @@
 
 
-from helpers import add_product, add_employee, add_task, view_tasks
+from helpers import add_product
 
 def main():
     print("Welcome to my Warehouse Inventory CLI")
