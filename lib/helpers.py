@@ -11,3 +11,9 @@ def add_product(name, inventory_quantity):
     new_product = Product(name=name, inventory_quantity=inventory_quantity)
     session.add(new_product)
     session.commit()
+
+def add_employee(name):
+    new_employee = Employee(name=name)
+    session.add(new_employee)
+    session.commit()
+
