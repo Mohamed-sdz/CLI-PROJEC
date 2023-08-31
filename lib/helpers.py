@@ -7,4 +7,7 @@ engine = create_engine('sqlite:///warehouse.db')
 Session = sessionmaker(bind=engine)
 session = Session()
 
- 
+def add_product(name, inventory_quantity):
+    new_product = Product(name=name, inventory_quantity=inventory_quantity)
+    session.add(new_product)
+    session.commit()
