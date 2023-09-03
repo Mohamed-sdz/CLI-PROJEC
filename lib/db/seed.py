@@ -1,50 +1,81 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from models import Base, Product, Supplier, Employee, Task, Shipment
+from models import Supplier, Product, Employee, Shipment, Task
 
-# Create the engine and session
+# Define the database engine
 engine = create_engine('sqlite:///warehouse.db')
+
+# Create a session for interacting with the database
 Session = sessionmaker(bind=engine)
 session = Session()
 
-# Create sample data
-def seed_data():
-    # Create suppliers
-    supplier1 = Supplier(name='Supplier 1')
-    supplier2 = Supplier(name='Supplier 2')
+# Seed data for Suppliers
+suppliers_data = [
+    {"name": "Supplier A"},
+    {"name": "Supplier B"},
+    {"name": "Supplier C"},
+]
 
-    # Create products
-    product1 = Product(name='Product 1', inventory_quantity=10)
-    product2 = Product(name='Product 2', inventory_quantity=5)
-    product3 = Product(name='Product 3', inventory_quantity=8)
+# Seed data for Products, including inventory_quantity
+products_data = [
+    {"name": "Product 1", "inventory_quantity": 100},
+    {"name": "Product 2", "inventory_quantity": 50},
+    {"name": "Product 3", "inventory_quantity": 75},
+]
 
-    # Associate products with suppliers
-    supplier1.products.extend([product1, product2])
-    supplier2.products.append(product3)
+# Seed data for Employees
+employees_data = [
+    {"name": "Employee 1"},
+    {"name": "Employee 2"},
+    {"name": "Employee 3"},
+]
 
-    # Create employees
-    employee1 = Employee(name='Employee 1')
-    employee2 = Employee(name='Employee 2')
+# Seed data for Shipments
+shipments_data = [
+    {"quantity": 100},
+    {"quantity": 200},
+    {"quantity": 150},
+]
 
-    # Create tasks for employees
-    task1 = Task(description='Task 1', employee=employee1)
-    task2 = Task(description='Task 2', employee=employee1)
-    task3 = Task(description='Task 3', employee=employee2)
+# Seed data for Tasks
+tasks_data = [
+    {"description": "Task 1", "employee": Employee(name="Employee 1")},
+    {"description": "Task 2", "employee": Employee(name="Employee 2")},
+    {"description": "Task 3", "employee": Employee(name="Employee 3")},
+]
 
-    # Create shipments
-    shipment1 = Shipment(product=product1, quantity=3)
-    shipment2 = Shipment(product=product2, quantity=2)
-    shipment3 = Shipment(product=product3, quantity=4)
+# Populate the database with seeded data
 
-    # Add objects to the session
-    session.add_all([supplier1, supplier2, product1, product2, product3,
-                     employee1, employee2, task1, task2, task3,
-                     shipment1, shipment2, shipment3])
+# Seed Suppliers
+for supplier_info in suppliers_data:
+    supplier = Supplier(**supplier_info)
+    session.add(supplier)
 
-    # Commit the changes
-    session.commit()
-    
-    print("Sample data seeded successfully.")
+# Seed Products
+for product_info in products_data:
+    product = Product(**product_info)
+    session.add(product)
 
-if __name__ == '__main__':
-    seed_data()
+# Seed Employees
+for employee_info in employees_data:
+    employee = Employee(**employee_info)
+    session.add(employee)
+
+# Seed Shipments
+for shipment_info in shipments_data:
+    shipment = Shipment(**shipment_info)
+    session.add(shipment)
+
+# Seed Tasks
+for task_info in tasks_data:
+    task = Task(**task_info)
+    session.add(task)
+
+# Commit the changes to the database
+session.commit()
+
+# Close the session
+session.close()
+
+# Print a message to indicate successful seeding
+print("Sample data seeded successfully.")
