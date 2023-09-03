@@ -141,3 +141,34 @@ def update_employee(session, employee_id, name=None):
         session.rollback()
         return False, str(e)
 
+def update_shipment(session, shipment_id, quantity=None):
+    try:
+        shipment = session.query(Shipment).filter_by(id=shipment_id).first()
+        if not shipment:
+            return False, "Shipment not found."
+
+        if quantity is not None:
+            shipment.quantity = quantity
+
+        session.commit()
+        return True, "Shipment information updated successfully."
+    except Exception as e:
+        session.rollback()
+        return False, str(e)
+
+def delete_product(session, product_id):
+    try:
+        product = session.query(Product).filter_by(id=product_id).first()
+        if not product:
+            return False, "Product not found."
+
+        product.suppliers.clear()
+        product.employees.clear()
+        product.shipments.clear()
+
+        session.delete(product)
+        session.commit()
+        return True, "Product deleted successfully."
+    except Exception as e:
+        session.rollback()
+        return False, str(e)
