@@ -108,3 +108,21 @@ def list_shipments(session):
         print(table)
     else:
         print("No shipments found.")
+
+def update_product(session, product_id, name=None, inventory_quantity=None):
+    try:
+        product = session.query(Product).filter_by(id=product_id).first()
+        if not product:
+            return False, "Product not found."
+
+        if name:
+            product.name = name
+        if inventory_quantity is not None:
+            product.inventory_quantity = inventory_quantity
+
+        session.commit()
+        return True, "Product information updated successfully."
+    except Exception as e:
+        session.rollback()
+        return False, str(e)
+
