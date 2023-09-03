@@ -205,3 +205,19 @@ def delete_supplier(session, supplier_id):
         session.rollback()
         return False, str(e)
 
+def delete_shipment(session, shipment_id):
+    try:
+        shipment = session.query(Shipment).filter_by(id=shipment_id).first()
+        if not shipment:
+            return False, "Shipment not found."
+
+        for product in shipment.products:
+            product.shipments.remove(shipment)
+
+        session.delete(shipment)
+        session.commit()
+        return True, "Shipment deleted successfully."
+    except Exception as e:
+        session.rollback()
+        return False, str(e)
+
