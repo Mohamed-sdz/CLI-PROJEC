@@ -126,3 +126,18 @@ def update_product(session, product_id, name=None, inventory_quantity=None):
         session.rollback()
         return False, str(e)
 
+def update_employee(session, employee_id, name=None):
+    try:
+        employee = session.query(Employee).filter_by(id=employee_id).first()
+        if not employee:
+            return False, "Employee not found."
+
+        if name is not None:
+            employee.name = name
+
+        session.commit()
+        return True, "Employee information updated successfully."
+    except Exception as e:
+        session.rollback()
+        return False, str(e)
+
