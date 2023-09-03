@@ -221,3 +221,8 @@ def delete_shipment(session, shipment_id):
         session.rollback()
         return False, str(e)
 
+def search_products_by_name(session, name):
+    products = session.query(Product).filter(Product.name.ilike(f"%{name}%")).all()
+    return products
+
+
