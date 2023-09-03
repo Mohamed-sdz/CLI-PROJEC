@@ -1,33 +1,18 @@
-
-
-from helpers import add_product, add_employee
+import click
+import inquirer
+from helpers import (
+    add_product, add_employee, list_products, list_employees, list_tasks,
+    add_supplier, list_suppliers, add_shipment, list_shipments,
+    update_product, update_employee, update_shipment,
+    delete_product, delete_employee, delete_supplier, delete_shipment,
+    search_products_by_name, search_employees_by_name, filter_products_low_inventory
+)
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
 def main():
-    print("Welcome to my Warehouse Inventory CLI")
-    
-    while True:
-        print("\nSelect an option:")
-        print("1. Add Product")
-        print("2. Add Employee")
-choice = input("Enter your choice: ")
-        
-if choice == "1":
-            name = input("Enter product name: ")
-            inventory_quantity = int(input("Enter inventory quantity: "))
-            add_product(name, inventory_quantity)
-            print("Product added successfully!")
-elif choice == "2":
-            name = input("Enter employee name: ")
-            add_employee(name)
-            print("Employee added successfully!")
+    click.echo("Welcome to my Warehouse Inventory CLI")
 
-
-
-
-
-
-      
-
-
-if __name__ == "__main__":
-    main()
+engine = create_engine('sqlite:///warehouse.db')
+Session = sessionmaker(bind=engine)
+session = Session()
