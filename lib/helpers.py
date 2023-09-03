@@ -59,3 +59,14 @@ def list_employees(session):
     else:
         print("No employees found.")
 
+def list_tasks(session):
+    tasks = session.query(Task).all()
+    if tasks:
+        task_data = [(task.id, task.description, task.employee_id) for task in tasks]
+        headers = ["ID", "Description", "Employee ID"]
+        table = tabulate(task_data, headers, tablefmt="grid")
+        print(table)
+    else:
+        print("No tasks found.")
+
+
