@@ -7,3 +7,13 @@ from tabulate import tabulate
 engine = create_engine('sqlite:///warehouse.db')
 Session = sessionmaker(bind=engine)
 session = Session()
+
+def add_product(session, name, inventory_quantity):
+    try:
+        product = Product(name=name, inventory_quantity=inventory_quantity)
+        session.add(product)
+        session.commit()
+        return True, "Product added successfully!"
+    except Exception as e:
+        session.rollback()
+        return False, str(e)
