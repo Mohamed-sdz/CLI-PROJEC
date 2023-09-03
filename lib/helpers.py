@@ -229,5 +229,9 @@ def search_employees_by_name(session, name):
     employees = session.query(Employee).filter(Employee.name.ilike(f"%{name}%")).all()
     return employees
 
+def filter_products_low_inventory(session, threshold):
+    products = session.query(Product).filter(Product.inventory_quantity < threshold).all()
+    return products
+
 
 
