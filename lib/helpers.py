@@ -189,3 +189,19 @@ def delete_employee(session, employee_id):
         session.rollback()
         return False, str(e)
 
+def delete_supplier(session, supplier_id):
+    try:
+        supplier = session.query(Supplier).filter_by(id=supplier_id).first()
+        if not supplier:
+            return False, "Supplier not found."
+
+        for product in supplier.products:
+            product.suppliers.remove(supplier)
+
+        session.delete(supplier)
+        session.commit()
+        return True, "Supplier deleted successfully."
+    except Exception as e:
+        session.rollback()
+        return False, str(e)
+
