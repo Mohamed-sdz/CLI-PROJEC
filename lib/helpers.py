@@ -225,4 +225,9 @@ def search_products_by_name(session, name):
     products = session.query(Product).filter(Product.name.ilike(f"%{name}%")).all()
     return products
 
+def search_employees_by_name(session, name):
+    employees = session.query(Employee).filter(Employee.name.ilike(f"%{name}%")).all()
+    return employees
+
+
 
