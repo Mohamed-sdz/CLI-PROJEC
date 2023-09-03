@@ -28,6 +28,17 @@ def add_employee(session, name):
         session.rollback()
         return False, str(e)
 
+def add_task(session, description, employee_id):
+    try:
+        task = Task(description=description, employee_id=employee_id)
+        session.add(task)
+        session.commit()
+        return True, "Task added successfully!"
+    except Exception as e:
+        session.rollback()
+        return False, str(e)
+
+
 def list_products(session):
     products = session.query(Product).all()
     if products:
