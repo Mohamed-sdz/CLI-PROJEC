@@ -69,4 +69,13 @@ def list_tasks(session):
     else:
         print("No tasks found.")
 
+def add_supplier(session, name):
+    try:
+        supplier = Supplier(name=name)
+        session.add(supplier)
+        session.commit()
+        return True, "Supplier added successfully!"
+    except Exception as e:
+        session.rollback()
+        return False, str(e)
 
