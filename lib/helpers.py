@@ -172,3 +172,20 @@ def delete_product(session, product_id):
     except Exception as e:
         session.rollback()
         return False, str(e)
+
+def delete_employee(session, employee_id):
+    try:
+        employee = session.query(Employee).filter_by(id=employee_id).first()
+        if not employee:
+            return False, "Employee not found."
+
+        for product in employee.products:
+            product.employees.remove(employee)
+
+        session.delete(employee)
+        session.commit()
+        return True, "Employee deleted successfully."
+    except Exception as e:
+        session.rollback()
+        return False, str(e)
+
