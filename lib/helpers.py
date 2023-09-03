@@ -79,3 +79,12 @@ def add_supplier(session, name):
         session.rollback()
         return False, str(e)
 
+def list_suppliers(session):
+    suppliers = session.query(Supplier).all()
+    if suppliers:
+        supplier_data = [(supplier.id, supplier.name) for supplier in suppliers]
+        headers = ["ID", "Name"]
+        table = tabulate(supplier_data, headers, tablefmt="grid")
+        print(table)
+    else:
+        print("No suppliers found.")
