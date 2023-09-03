@@ -17,3 +17,14 @@ def add_product(session, name, inventory_quantity):
     except Exception as e:
         session.rollback()
         return False, str(e)
+    
+def add_employee(session, name):
+    try:
+        employee = Employee(name=name)
+        session.add(employee)
+        session.commit()
+        return True, "Employee added successfully!"
+    except Exception as e:
+        session.rollback()
+        return False, str(e)
+
