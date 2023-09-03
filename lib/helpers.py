@@ -98,3 +98,13 @@ def add_shipment(session, quantity):
     except Exception as e:
         session.rollback()
         return False, str(e)
+
+def list_shipments(session):
+    shipments = session.query(Shipment).all()
+    if shipments:
+        shipment_data = [(shipment.id, shipment.quantity) for shipment in shipments]
+        headers = ["ID", "Quantity"]
+        table = tabulate(shipment_data, headers, tablefmt="grid")
+        print(table)
+    else:
+        print("No shipments found.")
