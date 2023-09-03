@@ -88,3 +88,13 @@ def list_suppliers(session):
         print(table)
     else:
         print("No suppliers found.")
+
+def add_shipment(session, quantity):
+    try:
+        shipment = Shipment(quantity=quantity)
+        session.add(shipment)
+        session.commit()
+        return True, "Shipment added successfully!"
+    except Exception as e:
+        session.rollback()
+        return False, str(e)
