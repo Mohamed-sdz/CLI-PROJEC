@@ -37,3 +37,14 @@ def list_products(session):
         print(table)
     else:
         print("No products found.")
+
+def list_employees(session):
+    employees = session.query(Employee).all()
+    if employees:
+        employee_data = [(employee.id, employee.name) for employee in employees]
+        headers = ["ID", "Name"]
+        table = tabulate(employee_data, headers, tablefmt="grid")
+        print(table)
+    else:
+        print("No employees found.")
+
