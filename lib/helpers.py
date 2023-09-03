@@ -28,3 +28,12 @@ def add_employee(session, name):
         session.rollback()
         return False, str(e)
 
+def list_products(session):
+    products = session.query(Product).all()
+    if products:
+        product_data = [(product.id, product.name, product.inventory_quantity) for product in products]
+        headers = ["ID", "Name", "Inventory Quantity"]
+        table = tabulate(product_data, headers, tablefmt="grid")
+        print(table)
+    else:
+        print("No products found.")
