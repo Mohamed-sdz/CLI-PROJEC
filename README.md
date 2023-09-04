@@ -17,7 +17,7 @@ Welcome to the Warehouse Inventory CLI, a command-line tool for managing product
 
 Before using this CLI, make sure you have the following tools and Python packages installed:
 
-- Python 3.x
+- Python 3.8 or higher
 - [Pipenv](https://pipenv.pypa.io/en/latest/)
 - [Alembic](https://alembic.sqlalchemy.org/en/latest/)
 - [SQLAlchemy](https://www.sqlalchemy.org/)
@@ -29,7 +29,7 @@ Before using this CLI, make sure you have the following tools and Python package
 ## Installation
 
 1. Clone this repository:
- git clone <https://github.com/Mohamed-sdz/warehouse-inventory-cli.git>
+ git clone <https://github.com/Mohamed-sdz/CLI-PROJEC.git>
    cd warehouse-inventory-cli
 
 1. Install the required Python packages using Pipenv:
