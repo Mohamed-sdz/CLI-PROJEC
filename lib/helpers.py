@@ -59,6 +59,17 @@ def list_employees(session):
     else:
         print("No employees found.")
 
+def add_task(session, description, employee_id):
+    try:
+        task = Task(description=description, employee_id=employee_id)
+        session.add(task)
+        session.commit()
+        return True, "Task added successfully!"
+    except Exception as e:
+        session.rollback()
+        return False, str(e)
+
+
 def list_tasks(session):
     tasks = session.query(Task).all()
     if tasks:
